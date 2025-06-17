@@ -8,7 +8,7 @@ import job from './config/cron.js'
 const app = express()
 const port = ENV.PORT || 5001
 
-if(ENV.NODE_ENV === "production") job.start()
+if(ENV.NODE_ENV !== "production") job.start()
 
 app.use(express.json())
 app.use(cors())
