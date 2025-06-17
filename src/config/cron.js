@@ -1,7 +1,7 @@
-import cren from 'cron'
+import cron from 'cron'
 import http from 'http'
 
-const job = new cren.CronJob("/14 * * * *", () => {
+const job = new cron.CronJob("*/14 * * * *", () => {
     http.get(process.env.API_URL, (res) => {
         if(res.statusCode === 200) console.log("Request success");
         else console.log("Request failed", res.statusCode);
